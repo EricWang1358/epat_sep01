@@ -30,13 +30,14 @@ jobs:
     - name: Unitest with Maven
       run: mvn test
 
-  synk-sast-scan:
+  snyk-dependency-scan:
     runs-on: ubuntu-latest
-    needs: build #prerequisite idea
+    needs: build
+
     steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@master
+      - uses: actions/checkout@v4
+      - name: Run Snyk dependency scan
+        uses: snyk/actions/maven-3-jdk-21@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           #to retrieve the token, go to snyk.io
