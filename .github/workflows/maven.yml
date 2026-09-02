@@ -49,7 +49,7 @@ jobs:
 
   send-message:
     runs-on: ubuntu-latest
-    needs: [build, snyk-dependency-scan]
+    needs: build
     if: ${{ always() }}
 
     steps:
