@@ -60,6 +60,9 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             CI workflow: ${{ github.workflow }}
+            Actor: ${{ github.actor }}
+            Repository: ${{ github.repository }}
+            Event: ${{ github.event_name }}
             Branch: ${{ github.ref_name }}
             Build: ${{ needs.build.result }}
             Snyk: ${{ needs.snyk-dependency-scan.result }}
